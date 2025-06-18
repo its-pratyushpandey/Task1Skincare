@@ -1,3 +1,4 @@
+// Cart page: Displays items added to the shopping cart
 import React from "react";
 
 const Cart: React.FC = () => (

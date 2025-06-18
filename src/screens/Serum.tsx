@@ -1,3 +1,4 @@
+// Serum page: Showcases serum products and details
 import React from "react";
 
 const Serum: React.FC = () => (

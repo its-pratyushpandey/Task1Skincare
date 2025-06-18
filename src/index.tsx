@@ -1,3 +1,4 @@
+// Entry point: Mounts the React app to the DOM
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./tailwind.css";

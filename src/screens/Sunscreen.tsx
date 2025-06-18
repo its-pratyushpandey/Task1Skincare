@@ -1,3 +1,4 @@
+// Sunscreen page: Highlights sunscreen products and benefits
 import React from "react";
 
 const Sunscreen: React.FC = () => (

@@ -1,3 +1,4 @@
+// Like page: Shows user's liked/favorite products
 import React from "react";
 
 const Like: React.FC = () => (

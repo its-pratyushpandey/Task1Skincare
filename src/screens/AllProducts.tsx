@@ -1,3 +1,4 @@
+// All Products page: Displays all available skincare products
 import React from "react";
 
 const AllProducts: React.FC = () => (

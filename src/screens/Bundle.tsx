@@ -1,3 +1,4 @@
+// Bundle page: Displays skincare bundles and offers
 import React from "react";
 
 const Bundle: React.FC = () => (
