@@ -1,18 +1,10 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 import "./tailwind.css";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Desktop, TermsOfService, PrivacyPolicy, CookiesPolicy } from "./screens/Desktop/Desktop";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import App from "./App";
 
-createRoot(document.getElementById("app") as HTMLElement).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Desktop />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/cookies-policy" element={<CookiesPolicy />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>,
+ReactDOM.createRoot(document.getElementById("app")!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
