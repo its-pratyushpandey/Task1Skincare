@@ -63,15 +63,7 @@ export const Navbar: React.FC = () => {
 						<ShoppingCart className="w-5 h-5" /> Sign Up
 						<Gift className="w-4 h-4 text-fuchsia-400 animate-bounce" />
 					</button>
-					<button className="p-2 rounded-lg bg-gradient-to-br from-[#43cea2] to-[#185a9d] text-white shadow-lg hover:scale-110 active:scale-95 transition-transform duration-200 glass-effect premium-shadow animate-in fade-in slide-in-from-top-4 delay-200">
-						<HeartHandshake className="w-6 h-6 animate-bounce" />
-					</button>
-					<button className="p-2 rounded-lg bg-gradient-to-br from-[#f5d020] to-[#f53803] text-white shadow-lg hover:scale-110 active:scale-95 transition-transform duration-200 glass-effect premium-shadow animate-in fade-in slide-in-from-top-4 delay-300">
-						<ShieldCheck className="w-6 h-6 animate-pulse" />
-					</button>
-					<button className="p-2 rounded-lg bg-gradient-to-br from-[#fc575e] to-[#f7b42c] text-white shadow-lg hover:scale-110 active:scale-95 transition-transform duration-200 glass-effect premium-shadow animate-in fade-in slide-in-from-top-4 delay-400">
-						<Zap className="w-6 h-6 animate-spin-slow" />
-					</button>
+					
 				</div>
 				<button className="md:hidden p-2 rounded-lg hover:bg-pink-100 dark:hover:bg-pink-900 focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-200 glass-effect premium-shadow">
 					<svg
