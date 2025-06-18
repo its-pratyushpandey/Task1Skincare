@@ -14,6 +14,7 @@ const PageLoader: React.FC<PageLoaderProps> = ({ onFinish }) => {
       if (loaderRef.current) {
         gsap.to(loaderRef.current, {
           y: "-100%",
+          
           opacity: 0,
           duration: 1.1,
           ease: "power3.inOut",

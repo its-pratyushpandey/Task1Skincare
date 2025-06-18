@@ -12,6 +12,7 @@ import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Navbar } from "../../components/ui/Navbar";
+import { Link } from "react-router-dom";
 
 // Navigation items data
 const navItems = [
@@ -105,15 +106,15 @@ const faqItems = [
 
 // Footer links
 const footerLinks = [
-  { name: "Facebook", href: "#" },
-  { name: "Instagram", href: "#" },
-  { name: "Youtube", href: "#" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/pratyush-pandey1/", external: true },
+  { name: "Instagram", href: "https://instagram.com/its.pratyush_pandey", external: true },
+  { name: "YouTube", href: "https://www.youtube.com/@Codeforfunn", external: true },
 ];
 
 const footerPolicies = [
-  { name: "Terms of Service", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-  { name: "Cookies Policy", href: "#" },
+  { name: "Terms of Service", href: "/terms-of-service", external: false },
+  { name: "Privacy Policy", href: "/privacy-policy", external: false },
+  { name: "Cookies Policy", href: "/cookies-policy", external: false },
 ];
 
 export const Desktop = (): JSX.Element => {
@@ -518,50 +519,49 @@ export const Desktop = (): JSX.Element => {
 
             {/* Footer */}
             <footer className="mt-[100px] bg-[#2d3b36] text-[#e7e8e0] py-[199px] px-[100px] relative overflow-hidden">
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="[font-family:'Inter',Helvetica] font-normal text-6xl tracking-[-1.20px] leading-normal">
-                    Join The Skincare
-                    <br />
-                    Community Now.
-                  </h2>
-
-                  <div className="flex gap-[50px] mt-[200px]">
-                    {footerLinks.map((link, index) => (
+              <div className="flex flex-col md:flex-row justify-between items-center gap-8 z-10 relative">
+                {/* Social Links */}
+                <div className="flex flex-col items-center md:items-start gap-4">
+                  <div className="flex gap-6 text-2xl font-bold">
+                    {footerLinks.map((link) => (
                       <a
-                        key={index}
+                        key={link.name}
                         href={link.href}
-                        className="[font-family:'Inter',Helvetica] font-normal text-[#eff5e1] text-xl tracking-[-1.00px] leading-normal whitespace-nowrap"
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        className="hover:text-pink-400 transition-colors duration-200 underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-pink-300 rounded-lg px-2 py-1 premium-shadow"
                       >
                         {link.name}
                       </a>
                     ))}
                   </div>
                 </div>
-
-                <div>
-                  <h3 className="[font-family:'Inter',Helvetica] font-normal text-3xl tracking-[-0.60px] leading-normal whitespace-nowrap">
-                    Get in Touch
-                  </h3>
-                  <p className="mt-[10px] [font-family:'Inter',Helvetica] font-normal text-6xl tracking-[-1.20px] leading-normal whitespace-nowrap">
-                    contact.skincare.com
-                  </p>
-
-                  <div className="flex gap-[30px] mt-[200px] justify-end">
-                    {footerPolicies.map((policy, index) => (
-                      <a
-                        key={index}
-                        href={policy.href}
-                        className="[font-family:'Inter',Helvetica] font-normal text-[#eff5e1] text-xl text-right tracking-[-1.00px] leading-normal whitespace-nowrap"
-                      >
-                        {policy.name}
-                      </a>
-                    ))}
+                {/* Policy Links */}
+                <div className="flex flex-col items-center md:items-end gap-4">
+                  <div className="flex gap-6 text-base font-semibold">
+                    {footerPolicies.map((policy) =>
+                      policy.external ? (
+                        <a
+                          key={policy.name}
+                          href={policy.href}
+                          className="hover:text-pink-400 transition-colors duration-200 underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-pink-300 rounded-lg px-2 py-1 premium-shadow"
+                        >
+                          {policy.name}
+                        </a>
+                      ) : (
+                        <Link
+                          key={policy.name}
+                          to={policy.href}
+                          className="hover:text-pink-400 transition-colors duration-200 underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-pink-300 rounded-lg px-2 py-1 premium-shadow"
+                        >
+                          {policy.name}
+                        </Link>
+                      )
+                    )}
                   </div>
                 </div>
               </div>
-
-              <div className="absolute bottom-0 left-0 right-0 font-bold text-[#3d4b4680] text-[420px] [font-family:'Inter',Helvetica] tracking-[0] leading-normal whitespace-nowrap">
+              <div className="absolute bottom-0 left-0 right-0 font-bold text-[#3d4b4680] text-[420px] [font-family:'Inter',Helvetica] tracking-[0] leading-normal whitespace-nowrap pointer-events-none select-none z-0">
                 SKINCARE
               </div>
             </footer>
@@ -571,3 +571,34 @@ export const Desktop = (): JSX.Element => {
     </>
   );
 };
+
+// --- Policy Pages (Premium Placeholder) ---
+export const TermsOfService = () => (
+  <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-50 to-fuchsia-50 text-[#2d3b36]">
+    <h1 className="text-5xl font-extrabold mb-6">Terms of Service</h1>
+    <p className="max-w-2xl text-lg text-center">
+      This is a premium placeholder for the Terms of Service page. Please update
+      with your content.
+    </p>
+  </div>
+);
+
+export const PrivacyPolicy = () => (
+  <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-50 to-fuchsia-50 text-[#2d3b36]">
+    <h1 className="text-5xl font-extrabold mb-6">Privacy Policy</h1>
+    <p className="max-w-2xl text-lg text-center">
+      This is a premium placeholder for the Privacy Policy page. Please update
+      with your content.
+    </p>
+  </div>
+);
+
+export const CookiesPolicy = () => (
+  <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white via-pink-50 to-fuchsia-50 text-[#2d3b36]">
+    <h1 className="text-5xl font-extrabold mb-6">Cookies Policy</h1>
+    <p className="max-w-2xl text-lg text-center">
+      This is a premium placeholder for the Cookies Policy page. Please update
+      with your content.
+    </p>
+  </div>
+);
