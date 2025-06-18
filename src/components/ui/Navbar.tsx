@@ -11,6 +11,8 @@ import {
 	Gift,
 	Zap,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import EditProfile from "./EditProfile";
 
 const navItems = [
 	{ name: "All Products", href: "#" },
@@ -20,6 +22,7 @@ const navItems = [
 ];
 
 export const Navbar: React.FC = () => {
+	const [showEdit, setShowEdit] = React.useState(false);
 	return (
 		<nav className="w-full bg-white text-foreground border-b border-border premium-shadow sticky top-0 z-50 transition-colors duration-300">
 			<div className="container mx-auto flex items-center justify-between py-4 px-6">
@@ -49,8 +52,11 @@ export const Navbar: React.FC = () => {
 					))}
 				</ul>
 				<div className="flex items-center gap-3">
-					<button className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white px-5 py-2 font-bold shadow-md hover:from-pink-600 hover:to-fuchsia-600 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:from-pink-700 dark:to-fuchsia-700 premium-shadow animate-in fade-in slide-in-from-top-4">
-						<User className="w-5 h-5" /> Sign In
+					<button
+						className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white px-5 py-2 font-bold shadow-md hover:from-pink-600 hover:to-fuchsia-600 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:from-pink-700 dark:to-fuchsia-700 premium-shadow animate-in fade-in slide-in-from-top-4"
+						onClick={() => setShowEdit((v) => !v)}
+					>
+						<User className="w-5 h-5" /> Edit Profile
 						<Star className="w-4 h-4 text-yellow-300 animate-pulse" />
 					</button>
 					<button className="inline-flex items-center gap-2 rounded-lg border-2 border-pink-500 text-pink-600 px-5 py-2 font-bold bg-white hover:bg-pink-50 hover:text-pink-700 transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-pink-300 dark:bg-gray-900 dark:text-pink-300 dark:border-pink-300 dark:hover:bg-gray-800 glass-effect premium-shadow animate-in fade-in slide-in-from-top-4 delay-100">
@@ -83,6 +89,20 @@ export const Navbar: React.FC = () => {
 					</svg>
 				</button>
 			</div>
+			{showEdit && (
+				<div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/40">
+					<div className="relative">
+						<button
+							className="absolute top-2 right-2 text-gray-500 hover:text-pink-500 text-2xl font-bold z-10"
+							onClick={() => setShowEdit(false)}
+							aria-label="Close Edit Profile"
+						>
+							×
+						</button>
+						<EditProfile />
+					</div>
+				</div>
+			)}
 		</nav>
 	);
 };
