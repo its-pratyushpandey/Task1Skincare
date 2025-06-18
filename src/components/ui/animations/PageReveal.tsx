@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+// PageRevealProps: Wraps children with a fast, elegant reveal animation
 interface PageRevealProps {
   children: React.ReactNode;
 }
@@ -16,7 +17,7 @@ const PageReveal: React.FC<PageRevealProps> = ({ children }) => {
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
+          duration: 0.6, // Faster reveal for a premium, snappy feel
           ease: "power3.out",
         }
       );
