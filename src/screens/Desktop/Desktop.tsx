@@ -518,20 +518,36 @@ export const Desktop = (): JSX.Element => {
             </main>
 
             {/* Footer */}
-            <footer className="mt-[100px] bg-[#2d3b36] text-[#e7e8e0] py-[199px] px-[100px] relative overflow-hidden">
-              <div className="flex flex-col md:flex-row justify-between items-center gap-8 z-10 relative">
-                {/* Social Links */}
+            <footer className="mt-[100px] bg-[#2d3b36] text-[#e7e8e0] py-[100px] px-[100px] relative overflow-hidden shadow-2xl border-t border-[#e7e8e0]/10">
+              {/* Brand and Social Section */}
+              <div className="flex flex-col md:flex-row justify-between items-center gap-12 z-10 relative">
+                {/* Brand Logo/Name */}
                 <div className="flex flex-col items-center md:items-start gap-4">
-                  <div className="flex gap-6 text-2xl font-bold">
+                  <span className="text-4xl font-extrabold tracking-tight text-[#fefff4] mb-2 select-none">SKINCARE</span>
+                  <span className="text-base text-[#e7e8e0]/70 font-medium">Premium Natural Beauty</span>
+                  {/* Social Icons */}
+                  <div className="flex gap-4 mt-4">
                     {footerLinks.map((link) => (
                       <a
                         key={link.name}
                         href={link.href}
-                        target={link.external ? "_blank" : undefined}
-                        rel={link.external ? "noopener noreferrer" : undefined}
-                        className="hover:text-pink-400 transition-colors duration-200 underline-offset-4 hover:underline focus:outline-none focus:ring-2 focus:ring-pink-300 rounded-lg px-2 py-1 premium-shadow"
+                        target={link.external ? '_blank' : undefined}
+                        rel={link.external ? 'noopener noreferrer' : undefined}
+                        className="hover:text-pink-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pink-300 rounded-full p-2 bg-[#e7e8e0]/10 hover:bg-[#e7e8e0]/20"
+                        aria-label={link.name}
                       >
-                        {link.name}
+                        {/* Use icons for social links if available, fallback to name */}
+                        {link.name === 'LinkedIn' && (
+                          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.87 0-2.156 1.46-2.156 2.968v5.699h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.042 0 3.604 2.002 3.604 4.604v5.592z"/></svg>
+                        )}
+                        {link.name === 'Instagram' && (
+                          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.012-4.947.07-1.276.058-2.687.334-3.678 1.325-.991.991-1.267 2.402-1.325 3.678-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.334 2.687 1.325 3.678.991.991 2.402 1.267 3.678 1.325 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.687-.334 3.678-1.325.991-.991 1.267-2.402 1.325-3.678.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.334-2.687-1.325-3.678-.991-.991-2.402-1.267-3.678-1.325-1.28-.058-1.688-.07-4.947-.07zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        )}
+                        {link.name === 'YouTube' && (
+                          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.163 3.5 12 3.5 12 3.5s-7.163 0-9.391.569A2.994 2.994 0 0 0 .502 6.186C0 8.414 0 12 0 12s0 3.586.502 5.814a2.994 2.994 0 0 0 2.107 2.117C4.837 20.5 12 20.5 12 20.5s7.163 0 9.391-.569a2.994 2.994 0 0 0 2.107-2.117C24 15.586 24 12 24 12s0-3.586-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        )}
+                        {/* Fallback to text if no icon */}
+                        {link.name !== 'LinkedIn' && link.name !== 'Instagram' && link.name !== 'YouTube' && link.name}
                       </a>
                     ))}
                   </div>
@@ -561,6 +577,14 @@ export const Desktop = (): JSX.Element => {
                   </div>
                 </div>
               </div>
+              {/* Divider */}
+              <div className="my-10 border-t border-[#e7e8e0]/20"></div>
+              {/* Copyright */}
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4 z-10 relative">
+                <span className="text-sm text-[#e7e8e0]/60">&copy; {new Date().getFullYear()} SKINCARE. All rights reserved.</span>
+                <span className="text-xs text-[#e7e8e0]/40">Designed by Pratyush Pandey</span>
+              </div>
+              {/* Large background text for premium feel */}
               <div className="absolute bottom-0 left-0 right-0 font-bold text-[#3d4b4680] text-[420px] [font-family:'Inter',Helvetica] tracking-[0] leading-normal whitespace-nowrap pointer-events-none select-none z-0">
                 SKINCARE
               </div>
